@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState,createContext } from "react";
+import Home from "./ClassTest/Home";
+import Contact from "./ClassTest/Login";
+export const UserContext = createContext();
+export default function App()
+{
+  const [Message , setMessage] = useState({
+   Home : "HomePage",
+   Contact : "ContactPage" 
+  });
+  //const Name ="Welcome User";
+  //const HomePage =" Home Page";
+  function Change()
+  {
+    ch===0 ? setCh(1) : setCh(0);
+  }
+  const [ch , setCh] = useState(0);
+  return(
+    <div>
+      <UserContext.Provider value={Message}>
+           <button onClick={Change}>Click Here To change </button>
+           { ch === 0 ? <Home/> : <Contact/> }
+           
+      
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      </UserContext.Provider>
     </div>
-  );
+  )
 }
-
-export default App;
